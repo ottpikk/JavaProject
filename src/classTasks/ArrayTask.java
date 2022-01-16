@@ -1,4 +1,4 @@
-package basic2;
+package classTasks;
 
 import java.sql.Array;
 import java.util.Scanner;
@@ -33,7 +33,7 @@ public class ArrayTask {
             arraySum += array2[i];
         }
 
-        System.out.println("The sum of your array: "+arraySum);
+        System.out.println("The sum of your array: " +arraySum);
 
 
     }
