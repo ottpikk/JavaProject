@@ -19,7 +19,7 @@ public class GuessNumber {
             System.out.println("You have left "+ guessCount+ " tries");
             if (random > guess ) {
                 System.out.println("Try bigger number ");
-            } else if (random < guess ) {
+            } else {
                 System.out.println("Try smaller one");
             }
             guess = scanner.nextInt();
