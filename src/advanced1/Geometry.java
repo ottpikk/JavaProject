@@ -5,10 +5,10 @@ class Rectangular {
     protected float width;
 
     public void area(){
-        System.out.println(length * width);
+        System.out.println("Area: " + length * width);
     }
     public void perimeter(){
-        System.out.println(2 * (length + width));
+        System.out.println("Perimeter: " + 2 * (length + width));
     }
     public void Rectangular(float length, float width){
         this.length = length;
@@ -39,13 +39,13 @@ public class Geometry {
         rec1.Rectangular(45,12);
         rec1.area();
         rec1.perimeter();
+        System.out.println();
 
         Square square1 = new Square();
         square1.Square(8);
         square1.area();
         square1.perimeter();
         square1.getSide();
-
 
     }
 }
