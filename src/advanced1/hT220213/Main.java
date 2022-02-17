@@ -32,15 +32,16 @@ public class Main {
         },2,1000);
 
 
-        rockPaperScissors newGame = new rockPaperScissors();
-
+        rockPaperScissors game1 = new rockPaperScissors();
+        rockPaperScissorsLizardSpock game2 = new rockPaperScissorsLizardSpock();
         int game = scanner.nextInt();
 
         switch (game){
             case 1:
-                newGame.rockPaperScissors();
+                game1.rockPaperScissors();
                 break;
             case 2:
+                game2.rockPaperScissorsLizardSpock();
                 break;
         }
 
