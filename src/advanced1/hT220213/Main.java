@@ -16,6 +16,9 @@ public class Main {
             public void run() {
                 System.out.print("\t"+to100);
                 to100 += 5;
+                if (to100 == 50){
+                    System.out.print("\tWOAH, your computer is slow..  :D");
+                }
                 if (to100 == 105){
                     System.out.println();
                     timer.cancel();
