@@ -35,6 +35,8 @@ public class rockPaperScissorsLizardSpock {
         scanner.nextLine();
         while (menu == 1){
             rockPaperScissorsLizardSpock();
+            menu = scanner.nextInt();
+
         }
 
     }
