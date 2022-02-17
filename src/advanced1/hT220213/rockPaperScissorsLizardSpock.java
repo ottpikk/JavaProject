@@ -2,7 +2,7 @@ package advanced1.hT220213;
 
 import java.util.Scanner;
 
-public class rockPaperScissorsLizardSpock extends rockPaperScissors{
+public class rockPaperScissorsLizardSpock {
     String player = "player";
 
     int choice1;
