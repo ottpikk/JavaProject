@@ -27,9 +27,16 @@ public class rockPaperScissorsLizardSpock extends rockPaperScissors{
             System.out.println(" Rock / Paper / Scissors / Lizard / Spock");
             this.choice21 = (scanner.nextLine().toLowerCase());
         }
-        gameLogic();
 
-        System.out.printf("\nPlayer 1 chose %s and player 2 chose %s", result(choice1), result(choice2));
+        gameLogic();
+        System.out.printf("Player 1 chose %s and player 2 chose %s\n", result(choice1), result(choice2));
+        System.out.println("\nMake your choice:\n\t1. Play again\n\t2. Exit");
+        int menu = scanner.nextInt();
+        scanner.nextLine();
+        while (menu == 1){
+            rockPaperScissorsLizardSpock();
+        }
+
     }
 
     public void gameLogic(){
