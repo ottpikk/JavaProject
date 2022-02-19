@@ -33,7 +33,7 @@ public class rockPaperScissors {
 
         String scissors = "scissors";
         String rock = "rock";
-        //String paper = "paper";
+        //String paper = "paper";   don't need it, will be 'else' statement
 
         if (game.player1.equals("player")){
             if (choice11.equals(scissors)){

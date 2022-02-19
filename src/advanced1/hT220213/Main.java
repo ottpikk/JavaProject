@@ -23,13 +23,12 @@ public class Main {
                     System.out.println();
                     timer.cancel();
                     System.out.println("\n\n\t\tCHOOSE YOUR GAME:");
-                    System.out.println("\t(enter the number of your choice)");
-                    System.out.println();
+                    System.out.println("\t(enter the number of your choice)\n");
                     System.out.println("\t1.\tRock, Paper, Scissors");
                     System.out.println("\t2.\tRock, Paper, Scissors, Lizard, Spock");
                 }
             }
-        },2,1000);
+        },2,500);
 
 
         rockPaperScissors game1 = new rockPaperScissors();
