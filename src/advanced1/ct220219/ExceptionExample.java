@@ -23,6 +23,12 @@ public class ExceptionExample {
             System.out.println("In the finally block"); //here code, must be run either way exception or not
         }
 
+        try {
+
+        } catch (ArrayIndexOutOfBoundsException | OutOfMemoryError e){
+
+        }
+
 
 
 

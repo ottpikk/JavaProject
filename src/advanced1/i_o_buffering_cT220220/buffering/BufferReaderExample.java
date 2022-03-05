@@ -1,4 +1,4 @@
-package advanced1.cT220220.buffering;
+package advanced1.i_o_buffering_cT220220.buffering;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

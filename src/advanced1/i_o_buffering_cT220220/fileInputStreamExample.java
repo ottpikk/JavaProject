@@ -1,4 +1,4 @@
-package advanced1.cT220220;
+package advanced1.i_o_buffering_cT220220;
 
 import java.io.FileInputStream;
 import java.io.IOException;

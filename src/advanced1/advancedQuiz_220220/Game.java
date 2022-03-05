@@ -35,11 +35,11 @@ public class Game {
             init(topic);
             //Ask if player wants to play or add questions
             System.out.println("Do you want to play or add questions? (p/a)");
-            String choice = scanner.nextLine();
-            if (choice.equals("p")){
+            char choice = scanner.nextLine().charAt(0);
+            if (choice == 'p'){
                 init(topic);
                 loop();
-            } else if (choice.equals("a")){
+            } else if (choice == 'a'){
                 init(topic);
                 write(topic);
             } else {
@@ -49,26 +49,14 @@ public class Game {
     }
     //Initialize game
     private static void init(int topic){
-        //Init the right file
-        String path = "";
-        switch (topic){
-            case 1: path = "Data\\Quiz\\data1.txt";
-                break;
-            case 2: path = "Data\\Quiz\\data2.txt";
-                break;
-            case 3: path = "Data\\Quiz\\data3.txt";
-                break;
-            case 4:
-                System.out.println("See you!!");
-                System.exit(-3);
-        }
-        try {
 
-            List<String> lines = Files.readAllLines(Paths.get(path));
-            int numOfAnswers = Integer.valueOf(lines.get(0));
-            for (int i = 1; i < lines.size(); i += (numOfAnswers+1)){
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("Data\\Quiz\\data" + topic + ".txt"));
+            int numOfAnswers = Integer.parseInt(lines.get(0));
+
+            for (int i = 1; i < lines.size(); i += numOfAnswers+1){
                 Question q;
-                if (lines.get(i+3).equals(lines.get(i+numOfAnswers))){
+                if (numOfAnswers == 3){
                     q = new Question(lines.get(i), lines.get(i+1), lines.get(i+2), lines.get(i+3));
                 } else {
                     q = new Question(lines.get(i), lines.get(i+1), lines.get(i+2), lines.get(i+3), lines.get(i+4));
@@ -118,30 +106,21 @@ public class Game {
     //Add question
     private static void write(int topic){
         try {
-            //choose right file
-            String path = "";
-            switch (topic){
-                case 1: path = "Data\\Quiz\\data1.txt";
-                    break;
-                case 2: path = "Data\\Quiz\\data2.txt";
-                    break;
-                case 3: path = "Data\\Quiz\\data3.txt";
-                    break;
-            }
-            BufferedWriter out = new BufferedWriter(new FileWriter(path,true));
+
+            BufferedWriter out = new BufferedWriter(new FileWriter("Data\\Quiz\\data"+topic+".txt",true));
 
             //Ask question
             System.out.println("Write your question:");
             String question = "\n" + scanner.nextLine();
             out.write(question);
 
-            //Ask right question
+            //Ask for right answer
             System.out.println("Write the right answer:");
             String rightAnswer = "\n" + scanner.nextLine();
             out.write(rightAnswer);
 
             //Ask for some additional answers
-            List<String> lines = Files.readAllLines(Paths.get(path));
+            List<String> lines = Files.readAllLines(Paths.get("Data\\Quiz\\data"+topic+".txt"));
             int numOfAnswers = Integer.valueOf(lines.get(0));
             System.out.println("Add " + (numOfAnswers -1) + " wrong answers");
             for (int i = 1; i < numOfAnswers; i++){

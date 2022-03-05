@@ -1,6 +1,5 @@
-package advanced1.cT220220.buffering;
+package advanced1.i_o_buffering_cT220220.buffering;
 
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Scanner;
 
