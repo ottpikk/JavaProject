@@ -2,6 +2,7 @@ package Advanced2.DesignPatternTasks;
 
 import Advanced2.DesignPatternTasks.misc.IConnector;
 import Advanced2.DesignPatternTasks.misc.MarsRover;
+import Advanced2.DesignPatternTasks.misc.mod.DeltaConnectorDecorator;
 import Advanced2.DesignPatternTasks.misc.mod.DeltaConnectorProxy;
 
 public class Architect {
@@ -19,12 +20,6 @@ public class Architect {
         connectorProxy.cltOfffer();
 
 
-
-
-        public IConnector iConnectorProxy() {
-            return null;
-        }
-
         /**
          * Task2
          * /!\ Make additional class /!\ (file new Class)
@@ -34,18 +29,18 @@ public class Architect {
          * that method ( String getDString() ) should always return "12345"
          * then create instance of that new class (new created decorator) and return
          */
-        public IConnector iConnectorDecorator() {
-            return null;
-        }
+        DeltaConnectorDecorator deltaConnectorDecorator = new DeltaConnectorDecorator();
+        System.out.println(deltaConnectorDecorator.getDString());
+
 
 
         /**
          * Task3
          * NullObject Pattern should be used there
          */
-        public Object nullObjectPattern(MarsRover marsRover) {
+        /*public Object nullObjectPattern(MarsRover marsRover) {
             return null;
-        }
+        }*/
 
 
         /**
@@ -54,16 +49,16 @@ public class Architect {
          * create LazyLoading pattern for reference
          * task4 should return instance of ArchitectLazyLoadingTask (but modify it to make LazyLoading
          */
-        public ArchitectLazyLoadingTask task4() {
+        /*public ArchitectLazyLoadingTask task4() {
             return null;
         }
 
         protected class ArchitectLazyLoadingTask {
             String reference = loadReference();
 
-            /**
+            *//**
              * Method for load reference
-             */
+             *//*
             private String loadReference() {
                 return "loadRef934345";
             }
@@ -71,7 +66,15 @@ public class Architect {
             public String getReference() {
                 return reference;
             }
-        }
+        }          */
+
+
+
+
+
+
+
+
     }
 
 
