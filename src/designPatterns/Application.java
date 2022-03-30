@@ -11,18 +11,18 @@ public class Application {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                // TODO Auto- generate method stub
                 runApp();
             }
         });
-
     }
 
     public static void runApp(){
         Model model = new Model();
-
         View view = new View(model);
+
         Controller controller = new Controller(model, view);
+
+        view.setLoginListener(controller);
 
     }
 }
