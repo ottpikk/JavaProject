@@ -12,6 +12,7 @@ public class Main {
         Item item2 = new Item("Radio","Samsung", 210.00);
         Item item3 = new Item("Headphones","Pioneer", 150.00);
 
+        //create cart and add items
         ShoppingCart cart1 = new ShoppingCart();
         cart1.addToCart(item1);
         cart1.addToCart(item3);
