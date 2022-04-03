@@ -1,13 +1,13 @@
 package liveCoding.invoiceTask;
 
 public enum Discount {
-    NO_DISCOUNT(0.00),
+    NO_DISCOUNT(0.00),  //value must be defined as separate field and Discount needs also constructor
     FIVE_PERCENT(0.05),
     TEN_PERCENT(0.10),
     TWENTY_FIVE_PERCENT(0.25),
     FIFTY_PERCENT(0.50);
 
-    private double percentage;
+    private double percentage;  //define value field for enums (encapsulated from other classes - private)
     /*
     A constructor of enum cannot be public because we do not create
         instances of enum outside the enum itself.
@@ -29,7 +29,7 @@ public enum Discount {
         this.percentage = percentage;
     }
 
-    //get access to double percentage value
+    //get access to double percentage value from outside this enum, that's why public
     public double getPercentage (){
         return percentage;
     }
