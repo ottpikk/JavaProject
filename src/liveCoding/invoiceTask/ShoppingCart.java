@@ -11,6 +11,7 @@ public class ShoppingCart {
         this.items = new ArrayList<Item>();
         this.totalAmount = 0;
     }
+
     public void addToCart(Item item) {
         this.items.add(item);
     }

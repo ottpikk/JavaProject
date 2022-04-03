@@ -1,9 +1,9 @@
 package liveCoding.invoiceTask;
 
 public class Item {
-    private String productName;
-    private String description;
-    private double unitPrice;
+    private final String productName;
+    private final String description;
+    private final double unitPrice;
 
     public Item(String productName, String description, double unitPrice) {
         this.productName = productName;
