@@ -17,10 +17,9 @@ public class Main {
         cart1.addToCart(item3);
 
         cart1.showCart();
-        System.out.println();
 
-        Invoice invoice2 = new Invoice("ABC-01234567890123",cart1.getTotalAmount(),Discount.TEN_PERCENT);
-        System.out.printf("invoice 2: %s\tamount: %s EUR\n",invoice2.getNumber(), invoice2.getAmountToPay());
+        Invoice invoice1 = new Invoice("ABC-01234567890123",cart1.getTotalAmount(),Discount.TEN_PERCENT);
+        System.out.printf("invoice 1: %s\tamount: %s EUR\n",invoice1.getNumber(), invoice1.getAmountToPay());
         System.out.println();
 
         ShoppingCart cart2 = new ShoppingCart();
@@ -29,8 +28,8 @@ public class Main {
         cart2.addToCart(item2);
         cart2.showCart();
 
-        Invoice invoice1 = new Invoice("ABC-01234567890123",cart2.getTotalAmount(),Discount.TEN_PERCENT);
-        System.out.printf("invoice 2: %s\tamount: %s EUR\n",invoice1.getNumber(), invoice1.getAmountToPay());
+        Invoice invoice2 = new Invoice("ABC-01234567890123",cart2.getTotalAmount(),Discount.TWENTY_FIVE_PERCENT);
+        System.out.printf("invoice 2: %s\tamount: %s EUR\n",invoice2.getNumber(), invoice2.getAmountToPay());
 
     }
 }
