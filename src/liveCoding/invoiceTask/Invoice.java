@@ -1,18 +1,21 @@
 package liveCoding.invoiceTask;
 
+
 public class Invoice {
+    //Fields
     private String number;
     private final double amountToPay;   // we set, that the amount can't be changed after creating object-final
-    private double discount;            //Encapsulation: no setters
+    private Discount discount;
 
-    public Invoice(String number, double amountToPay, double discount) {
-        setNumber(number);
-        this.amountToPay = amountToPay;
+    //Constructor
+    public Invoice(String number, double amountToPay, Discount discount) {
+        setNumber(number);  //use setter to modify or validate field to create instance
+        this.amountToPay = amountToPay; //class field and constructor's second parameter
         setDiscount(discount);
     }
 
     public Invoice(String number, double amountToPay) {
-        this(number, amountToPay, 0.0);  //A call to the upper constructor
+        this(number, amountToPay, Discount.NO_DISCOUNT);  //A call to the upper constructor
     }
 
     public String getNumber() {
@@ -21,27 +24,26 @@ public class Invoice {
 
     //returns validated number
     public void setNumber(String number) {
+        //Check whether invoice number length is less than 10 symbols. Otherwise, cut it to 10 symbols
         int maxLetters = 10;
         if (number.length() > maxLetters){
-            number = number.substring(0,maxLetters);  //if number longer than 10 char cut it to length 10
+            number = number.substring(0,maxLetters);  //  .substring(x,y)   - x from index(included), y - to index(not included)
         }
         this.number = number;
     }
 
-    //return validated discount
-    public void setDiscount(double discount) {
-        double maxDiscount = 1.0;
-        double minDiscount = 0.0;
-        if (discount > maxDiscount){
-            discount = maxDiscount;
-        } else if (discount < minDiscount){
-            discount = minDiscount;
-        }
+    public void setDiscount (Discount discount){
         this.discount = discount;
     }
 
     //return discounted amount
     public double getAmountToPay() {
-        return amountToPay - amountToPay * discount;
+        return amountToPay - amountToPay * discount.getPercentage();
     }
+
+
+
+
 }
+
+
