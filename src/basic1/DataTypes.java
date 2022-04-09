@@ -29,6 +29,9 @@ public class DataTypes {
         System.out.println(letter +""+ tab +""+ symbol +""+ newLine +""+ letter);
 
         String text = "Random text";
+        if(text.length() > 3){
+            text = text + "999";
+        }
         System.out.println(text);
     }
 }

@@ -29,12 +29,19 @@ public class Invoice {
 
     //returns validated number
     public void setNumber(String number) {
-        //Check whether invoice number length is less than 10 symbols. Otherwise, cut it to 10 symbols
-        int maxLetters = 10;
-        if (number.length() > maxLetters){
-            number = number.substring(0,maxLetters);  //  .substring(x,y)   - x from index(included), y - to index(not included)
+        try {
+            if (number.length() > 10){
+                throw new InvalidNumberException();
+            }
+        }catch (InvalidNumberException e){
+            System.out.println(e.getMessage());
+        } finally {
+            int maxLetters = 10;
+            if (number.length() > maxLetters){
+                number = number.substring(0,maxLetters);
+            }
+            this.number = number;
         }
-        this.number = number;
     }
 
     public void setDiscount (Discount discount){
