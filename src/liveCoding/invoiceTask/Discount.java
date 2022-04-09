@@ -7,6 +7,7 @@ public enum Discount {
     TWENTY_FIVE_PERCENT(0.25),
     FIFTY_PERCENT(0.50);
 
+
     private double percentage;  //define value field for enums (encapsulated from other classes - private)
     /*
     A constructor of enum cannot be public because we do not create
@@ -21,12 +22,21 @@ public enum Discount {
     private void setPercentage(double percentage) {
         double maxDiscount = 1.0;
         double minDiscount = 0.0;
-        if (percentage > maxDiscount){
-            percentage = maxDiscount;
-        } else if (percentage < minDiscount){
-            percentage = minDiscount;
+        try {
+            if (percentage > maxDiscount){
+                throw new InvalidPercentageException();
+            }
+        } catch (InvalidPercentageException e){
+            System.out.println(e.getMessage());
+        } finally {
+            if (percentage > maxDiscount){
+                percentage = maxDiscount;
+            } else if (percentage < minDiscount){
+                percentage = minDiscount;
+            }
+            this.percentage = percentage;
         }
-        this.percentage = percentage;
+
     }
 
     //get access to double percentage value from outside this enum, that's why public
