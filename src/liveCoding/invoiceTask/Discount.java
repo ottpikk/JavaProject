@@ -5,7 +5,8 @@ public enum Discount {
     FIVE_PERCENT(0.05),
     TEN_PERCENT(0.10),
     TWENTY_FIVE_PERCENT(0.25),
-    FIFTY_PERCENT(0.50);
+    FIFTY_PERCENT(0.50),
+    TWO_HUNDRED_PERCENT(2.00);
 
 
     private double percentage;  //define value field for enums (encapsulated from other classes - private)
@@ -24,7 +25,7 @@ public enum Discount {
         double minDiscount = 0.0;
         try {
             if (percentage > maxDiscount){
-                throw new InvalidPercentageException();
+                throw new InvalidPercentageException(percentage);
             }
         } catch (InvalidPercentageException e){
             System.out.println(e.getMessage());

@@ -1,8 +1,12 @@
 package liveCoding.invoiceTask;
 
-class InvalidNumberException extends Exception{
-    public String getMessage(){
-        return "Invoice number is too long";
+public class InvalidNumberException extends Exception{
+
+    public InvalidNumberException(String originalInvoiceNumber){
+
+        //super(message) -> message = our message
+        super(" DebitInvoice number " + originalInvoiceNumber
+                + " is too long, Please enter a valid number!");
     }
 }
 

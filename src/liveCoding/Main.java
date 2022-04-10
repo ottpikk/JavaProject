@@ -1,9 +1,6 @@
 package liveCoding;
 
-import liveCoding.invoiceTask.Discount;
-import liveCoding.invoiceTask.Invoice;
-import liveCoding.invoiceTask.Item;
-import liveCoding.invoiceTask.ShoppingCart;
+import liveCoding.invoiceTask.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +21,16 @@ public class Main {
         cart1.addToCart(headphones);
         cart1.addToCart(radio);
         cart1.showCart();  //just to print out items inside this shoppingCart
+        try {
+            DebitInvoice debitInvoice1 = new DebitInvoice("ABC-0123456789012334234",cart1.getTotalAmount(),Discount.TWO_HUNDRED_PERCENT);
+            System.out.printf("invoice 1: %s\tamount: %s EUR\n", debitInvoice1.getNumber(), debitInvoice1.getAmountToPay());
+            Invoice creditInvoice1 = new CreditInvoice("dlskf-4", debitInvoice1);
+            System.out.println("creditInvoice1 : " + creditInvoice1.getNumber() + "sum to pay: " + creditInvoice1.getAmountToPay());
+        } catch (InvalidNumberException e){
+            System.out.println(e.getMessage());
+        }
 
-        Invoice invoice1 = new Invoice("ABC-0123456789012334234",cart1.getTotalAmount(),Discount.TEN_PERCENT);
-        System.out.printf("invoice 1: %s\tamount: %s EUR\n",invoice1.getNumber(), invoice1.getAmountToPay());
         System.out.println();
-
 
         // 2 SAMPLE is without ShoppingCart class just put items into ArrayList
         List<Item> cart2 = new ArrayList<>();
@@ -39,9 +41,15 @@ public class Main {
         for (int i = 0; i < cart2.size();i++){
             System.out.printf("%s (%s) Prize: %s EUR\n",cart2.get(i).getProductName(), cart2.get(i).getDescription(), cart2.get(i).getUnitPrice());
         }
+        try{
+            DebitInvoice debitInvoice2 = new DebitInvoice("KLM - 45",cart2, Discount.TWENTY_FIVE_PERCENT);  //uses DebitInvoice second constructor
+            System.out.printf("invoice 2: %s\tamount: %s EUR\n", debitInvoice2.getNumber(), debitInvoice2.getAmountToPay());
+            Invoice creditInvoice1 = new CreditInvoice("ABC-4", debitInvoice2);
+            System.out.println("creditInvoice1 : " + creditInvoice1.getNumber() + "  sum to pay: " + creditInvoice1.getAmountToPay());
 
-        Invoice invoice2 = new Invoice("SKFJ - 45684454",cart2, Discount.TWENTY_FIVE_PERCENT);  //uses Invoice second constructor
-        System.out.printf("invoice 2: %s\tamount: %s EUR\n",invoice2.getNumber(), invoice2.getAmountToPay2());
+        } catch (InvalidNumberException e){
+            System.out.println(e.getMessage());
+        }
 
     }
 }
