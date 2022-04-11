@@ -23,10 +23,11 @@ public class Main {
         cart1.showCart();  //just to print out items inside this shoppingCart
         try {
             DebitInvoice debitInvoice1 = new DebitInvoice("ABC-0123456789012334234",cart1.getTotalAmount(),Discount.TWO_HUNDRED_PERCENT);
+
             System.out.printf("invoice 1: %s\tamount: %s EUR\n", debitInvoice1.getNumber(), debitInvoice1.getAmountToPay());
             Invoice creditInvoice1 = new CreditInvoice("dlskf-4", debitInvoice1);
             System.out.println("creditInvoice1 : " + creditInvoice1.getNumber() + "sum to pay: " + creditInvoice1.getAmountToPay());
-        } catch (InvalidNumberException e){
+        } catch (InvalidNumberException | InvalidPercentageException e){
             System.out.println(e.getMessage());
         }
 
@@ -47,7 +48,7 @@ public class Main {
             Invoice creditInvoice1 = new CreditInvoice("ABC-4", debitInvoice2);
             System.out.println("creditInvoice1 : " + creditInvoice1.getNumber() + "  sum to pay: " + creditInvoice1.getAmountToPay());
 
-        } catch (InvalidNumberException e){
+        } catch (InvalidNumberException | InvalidPercentageException e){
             System.out.println(e.getMessage());
         }
 

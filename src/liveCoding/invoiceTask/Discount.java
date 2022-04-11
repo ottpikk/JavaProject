@@ -23,20 +23,14 @@ public enum Discount {
     private void setPercentage(double percentage) {
         double maxDiscount = 1.0;
         double minDiscount = 0.0;
-        try {
-            if (percentage > maxDiscount){
-                throw new InvalidPercentageException(percentage);
-            }
-        } catch (InvalidPercentageException e){
-            System.out.println(e.getMessage());
-        } finally {
-            if (percentage > maxDiscount){
-                percentage = maxDiscount;
-            } else if (percentage < minDiscount){
-                percentage = minDiscount;
-            }
-            this.percentage = percentage;
+
+        if (percentage > maxDiscount){
+            percentage = maxDiscount;
+        } else if (percentage < minDiscount){
+            percentage = minDiscount;
         }
+        this.percentage = percentage;
+
 
     }
 

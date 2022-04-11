@@ -8,15 +8,22 @@ public class DebitInvoice extends Invoice{
     private List<Item> items;
 
     // Constructor for 1st SAMPLE in Main
-    public DebitInvoice(String number, double amountToPay, Discount discount) throws InvalidNumberException {
+    public DebitInvoice(String number, double amountToPay, Discount discount) throws InvalidNumberException, InvalidPercentageException {
         super(number);
         setDiscount(discount);
+        if (discount.getPercentage() > 2 || discount.getPercentage() < 0){
+            throw new InvalidPercentageException(discount.getPercentage());
+        }
+
     }
     // Constructor for 2nd SAMPLE in Main
-    public DebitInvoice(String number, List<Item> items, Discount discount) throws InvalidNumberException {
+    public DebitInvoice(String number, List<Item> items, Discount discount) throws InvalidNumberException, InvalidPercentageException {
         super(number);
         this.items = items;
         setDiscount(discount);
+        if (discount.getPercentage() > 2 || discount.getPercentage() < 0){
+            throw new InvalidPercentageException(discount.getPercentage());
+        }
     }
 
     public void setDiscount (Discount discount){
